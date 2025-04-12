@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,7 +62,17 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+                fuschia: {
+                    500: '#e9326d',
+                    600: '#d41e5d',
+                    700: '#b21950'
+                },
+                dark: {
+                    900: '#0a0a0a',
+                    800: '#121212',
+                    700: '#1a1a1a'
+                }
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -84,11 +95,36 @@ export default {
 					to: {
 						height: '0'
 					}
-				}
+				},
+                'fade-in': {
+                    '0%': { opacity: '0', transform: 'translateY(10px)' },
+                    '100%': { opacity: '1', transform: 'translateY(0)' }
+                },
+                'scale-in': {
+                    '0%': { transform: 'scale(0.95)', opacity: '0' },
+                    '100%': { transform: 'scale(1)', opacity: '1' }
+                },
+                'pulse-glow': {
+                    '0%, 100%': { boxShadow: '0 0 15px 0px rgba(233, 50, 109, 0.4)' },
+                    '50%': { boxShadow: '0 0 30px 5px rgba(233, 50, 109, 0.7)' }
+                },
+                'float': {
+                    '0%, 100%': { transform: 'translateY(0)' },
+                    '50%': { transform: 'translateY(-10px)' }
+                },
+                'gradient-x': {
+                    '0%': { backgroundPosition: '0% 50%' },
+                    '100%': { backgroundPosition: '100% 50%' }
+                }
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+                'fade-in': 'fade-in 0.6s ease-out',
+                'scale-in': 'scale-in 0.5s ease-out',
+                'pulse-glow': 'pulse-glow 2s infinite',
+                'float': 'float 4s ease-in-out infinite',
+                'gradient-x': 'gradient-x 3s ease infinite'
 			}
 		}
 	},

@@ -1,12 +1,335 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import { useEffect, useRef, useState } from 'react';
+import { motion } from 'framer-motion';
+import { ArrowDown, Check, ChevronDown } from 'lucide-react';
+import Benefits from '@/components/Benefits';
+import Timer from '@/components/Timer';
+import Bonus from '@/components/Bonus';
+import Guarantee from '@/components/Guarantee';
+import Testimonials from '@/components/Testimonials';
+import FAQ from '@/components/FAQ';
+import TopicsSection from '@/components/TopicsSection';
 
 const Index = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const heroRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    setIsVisible(true);
+    
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+    
+    if (heroRef.current) {
+      observer.observe(heroRef.current);
+    }
+    
+    return () => {
+      if (heroRef.current) {
+        observer.unobserve(heroRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-dark-900 text-white overflow-x-hidden">
+      {/* Hero Section */}
+      <section 
+        ref={heroRef} 
+        className="min-h-screen relative flex items-center py-20 overflow-hidden grid-pattern"
+      >
+        {/* Background Elements */}
+        <div className="absolute inset-0 bg-gradient-to-br from-dark-900 via-dark-900 to-fuschia-700/10"></div>
+        <div className="absolute top-0 left-0 w-full h-full opacity-20 pointer-events-none">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-fuschia-500/30 rounded-full blur-[100px]"></div>
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-fuschia-500/20 rounded-full blur-[100px]"></div>
+        </div>
+        
+        <div className="container mx-auto px-4 z-10 relative">
+          <div className="flex flex-col lg:flex-row items-center gap-12">
+            <div className="lg:w-1/2">
+              <motion.h1 
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 30 }}
+                transition={{ duration: 0.7, delay: 0.2 }}
+                className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight"
+              >
+                De Terapeuta Sobrecarregado a Empresário de Sucesso:
+                <span className="text-fuschia-500 block mt-2">
+                  Como Profissionais da Saúde Mental Estão Triplicando Sua Renda em Apenas 7 Dias!
+                </span>
+              </motion.h1>
+              
+              <motion.p 
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 30 }}
+                transition={{ duration: 0.7, delay: 0.4 }}
+                className="text-lg text-gray-300 mb-8"
+              >
+                Vou te revelar como implementei um sistema que começou a gerar resultados imediatos, elevando meu faturamento para R$ 75.000 mensais e reduzindo minha carga administrativa em 70%.
+              </motion.p>
+              
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 30 }}
+                transition={{ duration: 0.7, delay: 0.6 }}
+                className="glass-card p-5 mb-8 border-fuschia-500/30"
+              >
+                <p className="font-semibold mb-2">ATENÇÃO:</p>
+                <p className="text-gray-300">
+                  Isso não é uma ameaça à sua profissão, é um <span className="text-fuschia-500 font-semibold">superpoder</span> para que você faça o que nenhuma IA jamais fará, mudar histórias, salvar vidas e ser lembrado como um profissional da saúde mental que fez a diferença. ❤️
+                </p>
+              </motion.div>
+              
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 30 }}
+                transition={{ duration: 0.7, delay: 0.8 }}
+              >
+                <button className="glass-button w-full md:w-auto animate-pulse-glow">
+                  SIM, QUERO REVOLUCIONAR MINHA CARREIRA!
+                </button>
+                <p className="text-sm text-gray-400 mt-2 text-center md:text-left">Seja você iniciante ou profissional experiente.</p>
+              </motion.div>
+              
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: isVisible ? 1 : 0 }}
+                transition={{ duration: 1, delay: 1.5 }}
+                className="hidden md:flex justify-center mt-16"
+              >
+                <ArrowDown className="animate-float text-fuschia-500" size={32} />
+              </motion.div>
+            </div>
+            
+            <motion.div 
+              className="lg:w-1/2"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: isVisible ? 1 : 0, scale: isVisible ? 1 : 0.9 }}
+              transition={{ duration: 0.7, delay: 0.6 }}
+            >
+              <div className="relative">
+                <div className="absolute inset-0 bg-fuschia-500/20 rounded-xl blur-xl transform -rotate-2"></div>
+                <img 
+                  src="https://1000comandos.descomplicandovidas.com.br/wp-content/webp-express/webp-images/uploads/2023/08/mockup-1000-min.png.webp" 
+                  alt="Mockup do produto" 
+                  className="relative z-10 rounded-xl shadow-2xl shadow-fuschia-500/20 max-w-full h-auto"
+                />
+                <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-fuschia-500/30 rounded-full blur-xl"></div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+      
+      {/* Features Section */}
+      <section className="py-16 relative">
+        <div className="container mx-auto px-4">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="section-heading text-center mx-auto mb-8"
+          >
+            Apresentamos a solução inovadora
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="text-center text-gray-300 mb-12 max-w-2xl mx-auto"
+          >
+            A ciência da psicologia unida à eficiência da Inteligência Artificial, permitindo que você:
+          </motion.p>
+          
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              { title: "Amplie sua capacidade de atendimento", delay: 0.3 },
+              { title: "Aprofunde a conexão com seus pacientes", delay: 0.4 },
+              { title: "Destaque-se no mercado com abordagens modernas", delay: 0.5 }
+            ].map((item, index) => (
+              <motion.div 
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: item.delay }}
+                viewport={{ once: true }}
+                className="glass-card p-6 text-center flex flex-col items-center hover:translate-y-[-5px] transition-all duration-300"
+              >
+                <div className="h-12 w-12 rounded-full bg-fuschia-500/20 flex items-center justify-center mb-4">
+                  <Check className="text-fuschia-500" size={24} />
+                </div>
+                <h3 className="text-xl font-bold">{item.title}</h3>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+      
+      {/* What You'll Receive */}
+      <section className="py-16 relative">
+        <div 
+          className="absolute inset-0 bg-gradient-to-b from-transparent to-fuschia-500/5 opacity-50 pointer-events-none"
+        ></div>
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="section-heading text-center mx-auto mb-12"
+          >
+            Você vai receber:
+          </motion.h2>
+          
+          <div className="grid lg:grid-cols-2 gap-8">
+            {[
+              {
+                title: "Repertório Abrangente de Comandos",
+                description: "Alinhados com as mais recentes técnicas e metodologias baseadas em evidências, como Terapia Cognitivo-Comportamental, Terapia Focada na Solução, Terapia Sistêmica e muito mais."
+              },
+              {
+                title: "Aulas em Vídeos",
+                description: "Aprenda passo a passo como utilizar os comandos e extrair os melhores resultados do ChatGPT em sua prática clínica."
+              },
+              {
+                title: "Checklist de Planejamento",
+                description: "Organize e potencialize suas sessões com um guia estruturado que facilita o planejamento e o acompanhamento do progresso de seus pacientes."
+              },
+              {
+                title: "Inteligência Artificial na Saúde Mental",
+                description: "Material completo para todos os profissionais da saúde mental que desejam dominar a IA na prática terapêutica."
+              }
+            ].map((item, index) => (
+              <motion.div 
+                key={index}
+                initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="glass-card p-6 flex gap-4"
+              >
+                <div className="shrink-0">
+                  <div className="h-12 w-12 rounded-full bg-fuschia-500/20 flex items-center justify-center">
+                    <Check className="text-fuschia-500" size={24} />
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                  <p className="text-gray-300">{item.description}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+      
+      {/* Topics Section */}
+      <TopicsSection />
+      
+      {/* Testimonials */}
+      <Testimonials />
+      
+      {/* Benefits Section */}
+      <Benefits />
+      
+      {/* Bonus Section */}
+      <Bonus />
+      
+      {/* Certificate Section */}
+      <section className="py-12">
+        <div className="container mx-auto px-4">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="glass-card max-w-4xl mx-auto p-8 text-center"
+          >
+            <h3 className="text-2xl font-bold mb-4">CERTIFICADO PROFISSIONAL DE CONCLUSÃO INCLUSO</h3>
+            <p className="text-gray-300 mb-6">Ao finalizar o treinamento, você poderá emitir um certificado digital válido em todo o território nacional e com amparo legal.</p>
+            <p className="text-gray-300">O certificado poderá ser utilizado como horas complementares na faculdade, pontuação em concursos públicos e provas de residências, mediante aceitação prevista no edital.</p>
+          </motion.div>
+        </div>
+      </section>
+      
+      {/* Pricing & CTA Section */}
+      <section className="py-16 relative">
+        <div className="absolute inset-0 bg-gradient-to-t from-fuschia-500/10 to-transparent opacity-50 pointer-events-none"></div>
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="glass-card max-w-4xl mx-auto p-8 text-center border-fuschia-500/30"
+          >
+            <h3 className="text-lg font-semibold mb-2">Tudo isso deveria custar mais de:</h3>
+            <p className="text-3xl font-bold line-through mb-1 text-gray-400">R$ 197,00</p>
+            <p className="text-sm text-gray-400 mb-6">*Valor promocional somente nessa oferta!</p>
+            
+            <div className="mb-8">
+              <h4 className="text-lg mb-4">Tempo Restante da Oferta:</h4>
+              <Timer initialMinutes={28} initialSeconds={38} />
+              <p className="text-sm text-gray-400 mt-2">Atenção: Finalize o pagamento e garanta seu desconto!</p>
+            </div>
+            
+            <h3 className="text-xl font-semibold mb-2">Mas somente hoje, você poderá levar tudo por apenas:</h3>
+            <div className="mb-6">
+              <p className="text-lg text-gray-400">De <span className="line-through">R$ 197,00</span> por apenas</p>
+              <p className="text-5xl font-bold text-fuschia-500 mb-2">R$ 35,00</p>
+              <p className="text-sm text-gray-300">Pagamento Único, Acesso Vitalício e Envio Imediato!</p>
+            </div>
+            
+            <button className="glass-button w-full md:w-auto mb-8 animate-pulse-glow text-lg py-4 px-10">
+              Quero Garantir Meu Acesso Vitalício!
+            </button>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-6">
+              {[
+                "Funciona nas Versões Gratuitas e Pagas de Todas as IAs",
+                "Acesso Vitalício e Imediato com Pagamento Único de R$35",
+                "Garantia Total de 30 Dias ou Seu Dinheiro de Volta",
+                "88% de Desconto + 6 Bônus Gratuitos (Só Hoje!)",
+                "Privacidade 100% Garantida com Dados Criptografados",
+                "Certificado Reconhecido Nacionalmente"
+              ].map((item, index) => (
+                <div key={index} className="flex items-start gap-2">
+                  <Check className="text-fuschia-500 shrink-0 mt-1" size={18} />
+                  <span className="text-sm text-left text-gray-300">{item}</span>
+                </div>
+              ))}
+            </div>
+            
+            <p className="text-sm text-gray-400">Atenção: Após encerramento da promoção, o valor retornará para R$ 197,00.</p>
+          </motion.div>
+        </div>
+      </section>
+      
+      {/* Guarantee Section */}
+      <Guarantee />
+      
+      {/* FAQ Section */}
+      <FAQ />
+      
+      {/* Footer */}
+      <footer className="py-8 border-t border-gray-800">
+        <div className="container mx-auto px-4">
+          <div className="text-center">
+            <p className="text-gray-400 text-sm">
+              COPYRIGHT 2025 | IA para o Sucesso Profissional: Transforme Sua Carreira – TODOS OS DIREITOS RESERVADOS 
+            </p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };
