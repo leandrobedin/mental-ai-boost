@@ -1,14 +1,20 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowDown, Check, ChevronDown } from 'lucide-react';
+import { ArrowDown, Check, ChevronDown, MessageCircle } from 'lucide-react';
 import Benefits from '@/components/Benefits';
-import Timer from '@/components/Timer';
-import Bonus from '@/components/Bonus';
+import CountdownTimer from '@/components/CountdownTimer';
 import Guarantee from '@/components/Guarantee';
-import Testimonials from '@/components/Testimonials';
-import FAQ from '@/components/FAQ';
 import TopicsSection from '@/components/TopicsSection';
+import VideoSalesLetter from '@/components/VideoSalesLetter';
+import VideoTestimonials from '@/components/VideoTestimonials';
+import EnhancedBonus from '@/components/EnhancedBonus';
+import PlannerSection from '@/components/PlannerSection';
+import CertificateSection from '@/components/CertificateSection';
+import EnhancedFAQ from '@/components/EnhancedFAQ';
+import WhatsAppSupport from '@/components/WhatsAppSupport';
+import InsightsSection from '@/components/InsightsSection';
+import FeedbackGallery from '@/components/FeedbackGallery';
 
 const Index = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -50,6 +56,13 @@ const Index = () => {
         </div>
         
         <div className="container mx-auto px-4 z-10 relative">
+          {/* Countdown Timer */}
+          <div className="glass-card max-w-md mx-auto mb-8 p-4 text-center">
+            <p className="text-lg font-semibold mb-4">Tempo Restante da Oferta:</p>
+            <CountdownTimer />
+            <p className="text-sm text-gray-400 mt-2">Atenção: Finalize o pagamento e garanta seu desconto!</p>
+          </div>
+
           <div className="flex flex-col lg:flex-row items-center gap-12">
             <div className="lg:w-1/2">
               <motion.h1 
@@ -125,6 +138,9 @@ const Index = () => {
           </div>
         </div>
       </section>
+      
+      {/* VSL Section */}
+      <VideoSalesLetter />
       
       {/* Features Section */}
       <section className="py-16 relative">
@@ -234,31 +250,83 @@ const Index = () => {
       {/* Topics Section */}
       <TopicsSection />
       
-      {/* Testimonials */}
-      <Testimonials />
+      {/* Video Testimonials */}
+      <VideoTestimonials />
+      
+      {/* Regular Testimonials */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="section-heading mx-auto">O que nossos profissionais estão dizendo</h2>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                name: "Dra. Mariana S.",
+                role: "Psicóloga Clínica",
+                text: "Incrível como o material otimizou minha prática! Economizo horas na preparação das sessões e consigo atender mais pacientes com qualidade superior.",
+                stars: 5
+              },
+              {
+                name: "Dr. Carlos M.",
+                role: "Psicoterapeuta",
+                text: "Os comandos são revolucionários. Minha produtividade aumentou drasticamente e meus pacientes perceberam a diferença na qualidade das intervenções.",
+                stars: 5
+              },
+              {
+                name: "Patrícia L.",
+                role: "Psicanalista",
+                text: "Inicialmente tive receio de integrar a IA na minha prática, mas este material me mostrou como fazer isso de maneira ética e eficaz. Resultado: triplicou minha renda!",
+                stars: 5
+              }
+            ].map((testimonial, index) => (
+              <motion.div 
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="glass-card p-6 hover:translate-y-[-5px] transition-all duration-300"
+              >
+                <div className="flex mb-3">
+                  {[...Array(testimonial.stars)].map((_, i) => (
+                    <Check key={i} size={16} className="text-yellow-400" />
+                  ))}
+                </div>
+                <p className="text-gray-300 mb-6 italic">&ldquo;{testimonial.text}&rdquo;</p>
+                <div className="flex items-center">
+                  <div className="h-10 w-10 rounded-full bg-fuschia-500 flex items-center justify-center text-white font-bold">
+                    {testimonial.name.charAt(0)}
+                  </div>
+                  <div className="ml-3">
+                    <p className="font-semibold">{testimonial.name}</p>
+                    <p className="text-sm text-gray-400">{testimonial.role}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+      
+      {/* Insights Section */}
+      <InsightsSection />
+      
+      {/* Feedback Gallery */}
+      <FeedbackGallery />
       
       {/* Benefits Section */}
       <Benefits />
       
       {/* Bonus Section */}
-      <Bonus />
+      <EnhancedBonus />
+      
+      {/* Planner Section */}
+      <PlannerSection />
       
       {/* Certificate Section */}
-      <section className="py-12">
-        <div className="container mx-auto px-4">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className="glass-card max-w-4xl mx-auto p-8 text-center"
-          >
-            <h3 className="text-2xl font-bold mb-4">CERTIFICADO PROFISSIONAL DE CONCLUSÃO INCLUSO</h3>
-            <p className="text-gray-300 mb-6">Ao finalizar o treinamento, você poderá emitir um certificado digital válido em todo o território nacional e com amparo legal.</p>
-            <p className="text-gray-300">O certificado poderá ser utilizado como horas complementares na faculdade, pontuação em concursos públicos e provas de residências, mediante aceitação prevista no edital.</p>
-          </motion.div>
-        </div>
-      </section>
+      <CertificateSection />
       
       {/* Pricing & CTA Section */}
       <section className="py-16 relative">
@@ -278,7 +346,7 @@ const Index = () => {
             
             <div className="mb-8">
               <h4 className="text-lg mb-4">Tempo Restante da Oferta:</h4>
-              <Timer initialMinutes={28} initialSeconds={38} />
+              <CountdownTimer />
               <p className="text-sm text-gray-400 mt-2">Atenção: Finalize o pagamento e garanta seu desconto!</p>
             </div>
             
@@ -317,8 +385,11 @@ const Index = () => {
       {/* Guarantee Section */}
       <Guarantee />
       
+      {/* WhatsApp Support */}
+      <WhatsAppSupport />
+      
       {/* FAQ Section */}
-      <FAQ />
+      <EnhancedFAQ />
       
       {/* Footer */}
       <footer className="py-8 border-t border-gray-800">
