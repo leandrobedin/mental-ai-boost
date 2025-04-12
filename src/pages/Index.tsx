@@ -19,6 +19,7 @@ import FeedbackGallery from '@/components/FeedbackGallery';
 const Index = () => {
   const [isVisible, setIsVisible] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);
+  const offerCardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setIsVisible(true);
@@ -40,6 +41,11 @@ const Index = () => {
       }
     };
   }, []);
+
+  // Função para rolar suavemente até o card de oferta
+  const scrollToOffer = () => {
+    offerCardRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <div className="min-h-screen bg-dark-900 text-white overflow-x-hidden">
@@ -103,7 +109,7 @@ const Index = () => {
                 animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 30 }}
                 transition={{ duration: 0.7, delay: 0.8 }}
               >
-                <button className="glass-button w-full md:w-auto animate-pulse-glow">
+                <button onClick={scrollToOffer} className="glass-button w-full md:w-auto animate-pulse-glow">
                   SIM, QUERO REVOLUCIONAR MINHA CARREIRA!
                 </button>
                 <p className="text-sm text-gray-400 mt-2 text-center md:text-left">Seja você iniciante ou profissional experiente.</p>
@@ -115,7 +121,7 @@ const Index = () => {
                 transition={{ duration: 1, delay: 1.5 }}
                 className="hidden md:flex justify-center mt-16"
               >
-                <ArrowDown className="animate-float text-fuschia-500" size={32} />
+                <ArrowDown onClick={scrollToOffer} className="animate-float text-fuschia-500 cursor-pointer" size={32} />
               </motion.div>
             </div>
             
@@ -334,6 +340,7 @@ const Index = () => {
         
         <div className="container mx-auto px-4 relative z-10">
           <motion.div 
+            ref={offerCardRef}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -357,9 +364,14 @@ const Index = () => {
               <p className="text-sm text-gray-300">Pagamento Único, Acesso Vitalício e Envio Imediato!</p>
             </div>
             
-            <button className="glass-button w-full md:w-auto mb-8 animate-pulse-glow text-lg py-4 px-10">
+            <a 
+              href="https://go.pepper.com.br/5i5bw" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="glass-button w-full md:w-auto mb-8 animate-pulse-glow text-lg py-4 px-10 inline-block"
+            >
               Quero Garantir Meu Acesso Vitalício!
-            </button>
+            </a>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-6">
               {[

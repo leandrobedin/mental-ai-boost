@@ -50,6 +50,12 @@ const BonusItem = ({ number, title, description, value, imageUrl, delay }: Bonus
 };
 
 const EnhancedBonus = () => {
+  // Função para rolar suavemente até o card de oferta
+  const scrollToOffer = () => {
+    const offerCardElement = document.querySelector("[data-offer-card]");
+    offerCardElement?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   const bonusItems = [
     {
       number: "01",
@@ -135,6 +141,15 @@ const EnhancedBonus = () => {
               delay={item.delay}
             />
           ))}
+        </div>
+        
+        <div className="mt-10 text-center">
+          <button 
+            onClick={scrollToOffer}
+            className="glass-button animate-pulse-glow text-lg py-4 px-10 inline-block"
+          >
+            Quero Garantir Todos os Bônus Agora!
+          </button>
         </div>
       </div>
     </section>
