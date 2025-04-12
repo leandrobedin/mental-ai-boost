@@ -17,9 +17,12 @@ const Timer = ({ initialMinutes, initialSeconds }: TimerProps) => {
       } else if (minutes > 0) {
         setMinutes(minutes - 1);
         setSeconds(59);
+      } else {
+        clearInterval(interval); // Clear the interval when timer reaches 0:00
       }
     }, 1000);
 
+    // Clean up the interval on component unmount
     return () => clearInterval(interval);
   }, [minutes, seconds]);
 
