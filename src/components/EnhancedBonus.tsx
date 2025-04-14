@@ -28,7 +28,7 @@ const BonusItem = ({
   }} viewport={{
     once: true
   }} className="glass-card p-6 relative overflow-hidden">
-      <div className="absolute top-0 right-0 bg-orange-500 text-white px-4 py-1 text-sm font-bold">
+      <div className="absolute top-0 right-0 text-white px-4 py-1 text-sm font-bold bg-red-500">
         BÔNUS {number}
       </div>
       
