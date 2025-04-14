@@ -210,7 +210,7 @@ const Index = () => {
           }} viewport={{
             once: true
           }} className="glass-card p-6 text-center flex flex-col items-center hover:translate-y-[-5px] transition-all duration-300">
-                <div className="h-12 w-12 rounded-full bg-fuschia-500/20 flex items-center justify-center mb-4">
+                <div className="h-12 w-12 rounded-full flex items-center justify-center mb-4 bg-orange-300">
                   <Check className="text-fuschia-500" size={24} />
                 </div>
                 <h3 className="text-xl font-bold">{item.title}</h3>
