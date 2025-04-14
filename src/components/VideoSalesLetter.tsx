@@ -1,7 +1,28 @@
 
 import { motion } from 'framer-motion';
+import { useEffect, useRef } from 'react';
 
 const VideoSalesLetter = () => {
+  const videoContainerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (videoContainerRef.current) {
+      // Create and append the script element
+      const script = document.createElement('script');
+      script.src = "https://scripts.converteai.net/c20a50c2-baca-453d-9373-a276c8f62421/players/67f4081af1a80f4c291f9225/player.js";
+      script.async = true;
+      script.id = "scr_67f4081af1a80f4c291f9225";
+      document.head.appendChild(script);
+
+      return () => {
+        // Clean up the script on component unmount
+        if (script.parentNode) {
+          script.parentNode.removeChild(script);
+        }
+      };
+    }
+  }, []);
+
   return (
     <section className="py-16">
       <div className="container mx-auto px-4">
@@ -22,21 +43,20 @@ const VideoSalesLetter = () => {
           viewport={{ once: true }}
           className="max-w-5xl mx-auto glass-card p-2 overflow-hidden"
         >
-          <div 
-            dangerouslySetInnerHTML={{ 
-              __html: `
-                <div id="vid_67f4081af1a80f4c291f9225" style="position: relative; width: 100%; padding: 56.25% 0 0;">
-                  <img id="thumb_67f4081af1a80f4c291f9225" src="https://images.converteai.net/c20a50c2-baca-453d-9373-a276c8f62421/players/67f4081af1a80f4c291f9225/thumbnail.jpg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; display: block;" alt="thumbnail">
-                  <div id="backdrop_67f4081af1a80f4c291f9225" style=" -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); position: absolute; top: 0; height: 100%; width: 100%; "></div>
-                </div>
-                <script type="text/javascript" id="scr_67f4081af1a80f4c291f9225">
-                  var s=document.createElement("script");
-                  s.src="https://scripts.converteai.net/c20a50c2-baca-453d-9373-a276c8f62421/players/67f4081af1a80f4c291f9225/player.js",
-                  s.async=!0,document.head.appendChild(s);
-                </script>
-              `
-            }}
-          />
+          <div ref={videoContainerRef}>
+            <div id="vid_67f4081af1a80f4c291f9225" style={{ position: 'relative', width: '100%', padding: '56.25% 0 0' }}>
+              <img 
+                id="thumb_67f4081af1a80f4c291f9225" 
+                src="https://images.converteai.net/c20a50c2-baca-453d-9373-a276c8f62421/players/67f4081af1a80f4c291f9225/thumbnail.jpg" 
+                style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} 
+                alt="thumbnail" 
+              />
+              <div 
+                id="backdrop_67f4081af1a80f4c291f9225" 
+                style={{ WebkitBackdropFilter: 'blur(5px)', backdropFilter: 'blur(5px)', position: 'absolute', top: 0, height: '100%', width: '100%' }}
+              ></div>
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>
