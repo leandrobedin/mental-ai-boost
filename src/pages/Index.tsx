@@ -387,9 +387,7 @@ const Index = () => {
               <p className="text-gray-300 text-lg">Pagamento Único, Acesso Vitalício e Envio Imediato!</p>
             </div>
             
-            <a href="https://go.pepper.com.br/5i5bw" target="_blank" rel="noopener noreferrer" className="glass-button w-full md:w-auto mb-8 animate-pulse-glow text-lg py-4 px-10 inline-block bg-orange-500 hover:bg-orange-600 scale-110 transform transition-all">
-              Quero Garantir Meu Acesso Vitalício!
-            </a>
+            <a href="https://go.pepper.com.br/5i5bw" target="_blank" rel="noopener noreferrer" className="glass-button w-full md:w-auto mb-8 animate-pulse-glow text-lg px-10 inline-block bg-orange-500 hover:bg-orange-600 scale-110 transform transition-all py-[16px]">QUERO GARANTIR MEU ACESSO VITALÍCIO!</a>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-6">
               {["Funciona nas Versões Gratuitas e Pagas de Todas as IAs", "Acesso Vitalício e Imediato com Pagamento Único de R$35", "Garantia Total de 30 Dias ou Seu Dinheiro de Volta", "88% de Desconto + 6 Bônus Gratuitos (Só Hoje!)", "Privacidade 100% Garantida com Dados Criptografados", "Certificado Reconhecido Nacionalmente"].map((item, index) => <div key={index} className="flex items-start gap-2">
