@@ -52,7 +52,7 @@ const Index = () => {
         </div>
         
         <div className="container mx-auto px-4 z-10 relative">
-          <div className="glass-card max-w-md mx-auto mb-8 p-4 text-center">
+          <div className="glass-card max-w-md mx-auto mb-4 p-4 text-center">
             <p className="text-lg font-semibold mb-4 text-description">Tempo Restante da Oferta:</p>
             <CountdownTimer />
             <p className="text-sm text-gray-400 mt-2">Atenção: Finalize o pagamento e garanta seu desconto!</p>
