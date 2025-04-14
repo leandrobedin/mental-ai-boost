@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowDown, Check, ChevronDown, MessageCircle } from 'lucide-react';
 import Benefits from '@/components/Benefits';
@@ -70,9 +70,9 @@ const Index = () => {
               duration: 0.7,
               delay: 0.2
             }} className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
-                SEU CONSULTÓRIO PODE SER UMA MÁQUINA DE RESULTADOS SE VOCÊ PARAR DE SEGUIR O MODELO TRADICIONAL:
+                Seu Consultório: Uma Máquina de Resultados Além do Tradicional
                 <span className="text-cyan-400 block mt-2">
-                  Conheça a inteligência artificial que me tirou do cansaço crônico e me levou a triplicar o faturamento em DIAS. Sem mágica. Sem novos atendimentos. Só estratégia.
+                  IA que Transforma Cansaço em Faturamento em Dias
                 </span>
               </motion.h1>
               
