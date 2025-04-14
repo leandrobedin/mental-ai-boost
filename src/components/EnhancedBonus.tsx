@@ -47,7 +47,7 @@ const BonusItem = ({
         <div>
           <p className="text-sm text-gray-400">Normalmente Cobraríamos:</p>
           <p className="line-through text-gray-400">{value}</p>
-          <p className="text-cyan-400 font-bold">Mas HOJE é GRÁTIS!</p>
+          <p className="font-bold text-amber-300">Mas HOJE é GRÁTIS!</p>
         </div>
         <div className="h-12 w-12 rounded-full bg-orange-500/20 flex items-center justify-center">
           <Check className="text-orange-500" size={24} />
