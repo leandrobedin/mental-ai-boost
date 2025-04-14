@@ -158,7 +158,7 @@ const Index = () => {
       <VideoSalesLetter />
       
       {/* Features Section */}
-      <section className="py-16 relative">
+      <section className="relative py-[40px]">
         <div className="container mx-auto px-4">
           <motion.h2 initial={{
           opacity: 0,
