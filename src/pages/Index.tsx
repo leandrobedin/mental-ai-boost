@@ -264,7 +264,7 @@ const Index = () => {
             once: true
           }} className="glass-card p-6 flex gap-4">
                 <div className="shrink-0">
-                  <div className="h-12 w-12 rounded-full flex items-center justify-center bg-amber-300">
+                  <div className="h-12 w-12 rounded-full flex items-center justify-center bg-orange-300">
                     <Check className="text-fuschia-500" size={24} />
                   </div>
                 </div>
