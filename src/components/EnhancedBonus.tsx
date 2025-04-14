@@ -118,9 +118,7 @@ const EnhancedBonus = () => {
         duration: 0.5
       }} viewport={{
         once: true
-      }} className="section-heading text-center mx-auto mb-4">
-          BÔNUS EXCLUSIVOS PARA TURBINAR SEUS RESULTADOS
-        </motion.h2>
+      }} className="section-heading text-center mx-auto mb-4">6 BÔNUS GRÁTIS E EXCLUSIVOS PARA TURBINAR SEUS RESULTADOS</motion.h2>
         <motion.p initial={{
         opacity: 0,
         y: 20
