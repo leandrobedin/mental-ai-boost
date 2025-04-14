@@ -382,9 +382,9 @@ const Index = () => {
             
             <h3 className="text-xl font-semibold mb-2 subtitle">Mas somente hoje, você poderá levar tudo por apenas:</h3>
             <div className="mb-6 bg-gradient-to-r from-cyan-500/20 to-orange-500/20 p-6 rounded-lg">
-              <p className="text-lg text-gray-300">De <span className="line-through">R$ 197,00</span> por apenas</p>
-              <p className="text-5xl font-bold text-orange-500 mb-2">R$ 35,00</p>
-              <p className="text-sm text-gray-300">Pagamento Único, Acesso Vitalício e Envio Imediato!</p>
+              <p className="text-gray-300 text-xl">De <span className="line-through">R$ 197,00</span> por apenas</p>
+              <p className="font-bold text-orange-500 mb-2 mx-0 py-0 my-[20px] text-5xl">R$ 35,00</p>
+              <p className="text-gray-300 text-lg">Pagamento Único, Acesso Vitalício e Envio Imediato!</p>
             </div>
             
             <a href="https://go.pepper.com.br/5i5bw" target="_blank" rel="noopener noreferrer" className="glass-button w-full md:w-auto mb-8 animate-pulse-glow text-lg py-4 px-10 inline-block bg-orange-500 hover:bg-orange-600 scale-110 transform transition-all">
