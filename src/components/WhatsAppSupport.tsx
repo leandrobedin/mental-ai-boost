@@ -33,7 +33,7 @@ const WhatsAppSupport = () => {
               <span>Falar com um Especialista</span>
             </a>
             
-            <button onClick={scrollToOffer} className="glass-button inline-flex items-center gap-2 px-8 py-4 bg-orange-500/90 hover:bg-orange-600">
+            <button onClick={scrollToOffer} className="glass-button inline-flex items-center gap-2 px-8 py-4 bg-orange-500/90 hover:bg-orange-600 text-center">
               <span className="text-center">Garantir Agora</span>
             </button>
           </div>
