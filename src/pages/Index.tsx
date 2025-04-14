@@ -86,9 +86,7 @@ const Index = () => {
             }} transition={{
               duration: 0.7,
               delay: 0.4
-            }} className="md:text-xl text-gray-300 mb-8 text-description text-lg">
-                Vou te revelar como implementei um sistema que começou a gerar resultados imediatos, elevando meu faturamento para R$ 75.000 mensais e reduzindo minha carga administrativa em 70%.
-              </motion.p>
+            }} className="text-gray-300 mb-8 text-description text-lg font-medium md:text-xl">Com um único sistema, não só atingi R$ 100.000 de faturamento mensal, como também simplifiquei minha rotina, cortando 70% das tarefas administrativas chatas.</motion.p>
               
               <motion.div initial={{
               opacity: 0,
