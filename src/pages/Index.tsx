@@ -86,7 +86,7 @@ const Index = () => {
             }} transition={{
               duration: 0.7,
               delay: 0.4
-            }} className="text-lg md:text-xl text-gray-300 mb-8 text-description">
+            }} className="md:text-xl text-gray-300 mb-8 text-description text-lg">
                 Vou te revelar como implementei um sistema que começou a gerar resultados imediatos, elevando meu faturamento para R$ 75.000 mensais e reduzindo minha carga administrativa em 70%.
               </motion.p>
               
