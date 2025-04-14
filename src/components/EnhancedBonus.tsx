@@ -20,7 +20,7 @@ const BonusItem = ({ number, title, description, value, imageUrl, delay }: Bonus
       viewport={{ once: true }}
       className="glass-card p-6 relative overflow-hidden"
     >
-      <div className="absolute top-0 right-0 bg-fuschia-500 text-white px-4 py-1 text-sm font-bold">
+      <div className="absolute top-0 right-0 bg-orange-500 text-white px-4 py-1 text-sm font-bold">
         BÔNUS {number}
       </div>
       
@@ -30,8 +30,8 @@ const BonusItem = ({ number, title, description, value, imageUrl, delay }: Bonus
         </div>
         
         <div className="w-full md:w-2/3">
-          <h3 className="text-xl font-bold mt-2 mb-3">{title}</h3>
-          <p className="text-gray-300 mb-4">{description}</p>
+          <h3 className="text-xl font-bold mt-2 mb-3 subtitle">{title}</h3>
+          <p className="text-gray-300 mb-4 text-description">{description}</p>
         </div>
       </div>
       
@@ -39,10 +39,10 @@ const BonusItem = ({ number, title, description, value, imageUrl, delay }: Bonus
         <div>
           <p className="text-sm text-gray-400">Normalmente Cobraríamos:</p>
           <p className="line-through text-gray-400">{value}</p>
-          <p className="text-fuschia-500 font-bold">Mas HOJE é GRÁTIS!</p>
+          <p className="text-cyan-400 font-bold">Mas HOJE é GRÁTIS!</p>
         </div>
-        <div className="h-12 w-12 rounded-full bg-fuschia-500/20 flex items-center justify-center">
-          <Check className="text-fuschia-500" size={24} />
+        <div className="h-12 w-12 rounded-full bg-orange-500/20 flex items-center justify-center">
+          <Check className="text-orange-500" size={24} />
         </div>
       </div>
     </motion.div>
@@ -124,7 +124,7 @@ const EnhancedBonus = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
           viewport={{ once: true }}
-          className="text-center text-2xl font-bold text-fuschia-500 mb-12"
+          className="text-center text-2xl font-bold text-cyan-400 mb-12"
         >
           06 BÔNUS ESPECIAIS
         </motion.p>

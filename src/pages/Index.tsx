@@ -1,4 +1,3 @@
-
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowDown, Check, ChevronDown, MessageCircle } from 'lucide-react';
@@ -64,7 +63,7 @@ const Index = () => {
         <div className="container mx-auto px-4 z-10 relative">
           {/* Countdown Timer */}
           <div className="glass-card max-w-md mx-auto mb-8 p-4 text-center">
-            <p className="text-lg font-semibold mb-4">Tempo Restante da Oferta:</p>
+            <p className="text-lg font-semibold mb-4 text-description">Tempo Restante da Oferta:</p>
             <CountdownTimer />
             <p className="text-sm text-gray-400 mt-2">Atenção: Finalize o pagamento e garanta seu desconto!</p>
           </div>
@@ -78,7 +77,7 @@ const Index = () => {
                 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight"
               >
                 De Terapeuta Sobrecarregado a Empresário de Sucesso:
-                <span className="text-fuschia-500 block mt-2">
+                <span className="text-cyan-400 block mt-2">
                   Como Profissionais da Saúde Mental Estão Triplicando Sua Renda em Apenas 7 Dias!
                 </span>
               </motion.h1>
@@ -87,7 +86,7 @@ const Index = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 30 }}
                 transition={{ duration: 0.7, delay: 0.4 }}
-                className="text-lg text-gray-300 mb-8"
+                className="text-lg md:text-xl text-gray-300 mb-8 text-description"
               >
                 Vou te revelar como implementei um sistema que começou a gerar resultados imediatos, elevando meu faturamento para R$ 75.000 mensais e reduzindo minha carga administrativa em 70%.
               </motion.p>
@@ -96,11 +95,11 @@ const Index = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 30 }}
                 transition={{ duration: 0.7, delay: 0.6 }}
-                className="glass-card p-5 mb-8 border-fuschia-500/30"
+                className="glass-card p-5 mb-8 border-orange-500/30"
               >
-                <p className="font-semibold mb-2">ATENÇÃO:</p>
-                <p className="text-gray-300">
-                  Isso não é uma ameaça à sua profissão, é um <span className="text-fuschia-500 font-semibold">superpoder</span> para que você faça o que nenhuma IA jamais fará, mudar histórias, salvar vidas e ser lembrado como um profissional da saúde mental que fez a diferença. ❤️
+                <p className="font-semibold mb-2 text-description">ATENÇÃO:</p>
+                <p className="text-gray-300 text-description">
+                  Isso não é uma ameaça à sua profissão, é um <span className="text-cyan-400 font-semibold">superpoder</span> para que você faça o que nenhuma IA jamais fará, mudar histórias, salvar vidas e ser lembrado como um profissional da saúde mental que fez a diferença. ❤️
                 </p>
               </motion.div>
               
@@ -108,20 +107,21 @@ const Index = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 30 }}
                 transition={{ duration: 0.7, delay: 0.8 }}
+                className="flex flex-col items-center"
               >
-                <button onClick={scrollToOffer} className="glass-button w-full md:w-auto animate-pulse-glow">
+                <button onClick={scrollToOffer} className="glass-button w-full md:w-auto animate-pulse-glow text-lg">
                   SIM, QUERO REVOLUCIONAR MINHA CARREIRA!
                 </button>
-                <p className="text-sm text-gray-400 mt-2 text-center md:text-left">Seja você iniciante ou profissional experiente.</p>
-              </motion.div>
-              
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: isVisible ? 1 : 0 }}
-                transition={{ duration: 1, delay: 1.5 }}
-                className="hidden md:flex justify-center mt-16"
-              >
-                <ArrowDown onClick={scrollToOffer} className="animate-float text-fuschia-500 cursor-pointer" size={32} />
+                <p className="text-sm text-gray-400 mt-2 text-center">Seja você iniciante ou profissional experiente.</p>
+                
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: isVisible ? 1 : 0 }}
+                  transition={{ duration: 1, delay: 1.5 }}
+                  className="flex justify-center mt-8"
+                >
+                  <ArrowDown onClick={scrollToOffer} className="animate-float text-orange-500 cursor-pointer" size={32} />
+                </motion.div>
               </motion.div>
             </div>
             
@@ -132,13 +132,13 @@ const Index = () => {
               transition={{ duration: 0.7, delay: 0.6 }}
             >
               <div className="relative">
-                <div className="absolute inset-0 bg-fuschia-500/20 rounded-xl blur-xl transform -rotate-2"></div>
+                <div className="absolute inset-0 bg-orange-500/20 rounded-xl blur-xl transform -rotate-2"></div>
                 <img 
                   src="https://1000comandos.descomplicandovidas.com.br/wp-content/webp-express/webp-images/uploads/2023/08/mockup-1000-min.png.webp" 
                   alt="Mockup do produto" 
-                  className="relative z-10 rounded-xl shadow-2xl shadow-fuschia-500/20 max-w-full h-auto"
+                  className="relative z-10 rounded-xl shadow-2xl shadow-orange-500/20 max-w-full h-auto"
                 />
-                <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-fuschia-500/30 rounded-full blur-xl"></div>
+                <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-cyan-500/30 rounded-full blur-xl"></div>
               </div>
             </motion.div>
           </div>
@@ -336,31 +336,32 @@ const Index = () => {
       
       {/* Pricing & CTA Section */}
       <section className="py-16 relative">
-        <div className="absolute inset-0 bg-gradient-to-t from-fuschia-500/10 to-transparent opacity-50 pointer-events-none"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-orange-500/10 to-transparent opacity-50 pointer-events-none"></div>
         
         <div className="container mx-auto px-4 relative z-10">
           <motion.div 
             ref={offerCardRef}
+            data-offer-card
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="glass-card max-w-4xl mx-auto p-8 text-center border-fuschia-500/30"
+            className="glass-card max-w-4xl mx-auto p-8 text-center border-cyan-500/30 shadow-xl shadow-orange-500/10"
           >
-            <h3 className="text-lg font-semibold mb-2">Tudo isso deveria custar mais de:</h3>
+            <h3 className="text-lg md:text-xl font-semibold mb-2 subtitle">Tudo isso deveria custar mais de:</h3>
             <p className="text-3xl font-bold line-through mb-1 text-gray-400">R$ 197,00</p>
             <p className="text-sm text-gray-400 mb-6">*Valor promocional somente nessa oferta!</p>
             
-            <div className="mb-8">
-              <h4 className="text-lg mb-4">Tempo Restante da Oferta:</h4>
+            <div className="mb-8 bg-black/20 p-4 rounded-lg">
+              <h4 className="text-lg mb-4 subtitle">Tempo Restante da Oferta:</h4>
               <CountdownTimer />
               <p className="text-sm text-gray-400 mt-2">Atenção: Finalize o pagamento e garanta seu desconto!</p>
             </div>
             
-            <h3 className="text-xl font-semibold mb-2">Mas somente hoje, você poderá levar tudo por apenas:</h3>
-            <div className="mb-6">
-              <p className="text-lg text-gray-400">De <span className="line-through">R$ 197,00</span> por apenas</p>
-              <p className="text-5xl font-bold text-fuschia-500 mb-2">R$ 35,00</p>
+            <h3 className="text-xl font-semibold mb-2 subtitle">Mas somente hoje, você poderá levar tudo por apenas:</h3>
+            <div className="mb-6 bg-gradient-to-r from-cyan-500/20 to-orange-500/20 p-6 rounded-lg">
+              <p className="text-lg text-gray-300">De <span className="line-through">R$ 197,00</span> por apenas</p>
+              <p className="text-5xl font-bold text-orange-500 mb-2">R$ 35,00</p>
               <p className="text-sm text-gray-300">Pagamento Único, Acesso Vitalício e Envio Imediato!</p>
             </div>
             
@@ -368,7 +369,7 @@ const Index = () => {
               href="https://go.pepper.com.br/5i5bw" 
               target="_blank"
               rel="noopener noreferrer"
-              className="glass-button w-full md:w-auto mb-8 animate-pulse-glow text-lg py-4 px-10 inline-block"
+              className="glass-button w-full md:w-auto mb-8 animate-pulse-glow text-lg py-4 px-10 inline-block bg-orange-500 hover:bg-orange-600 scale-110 transform transition-all"
             >
               Quero Garantir Meu Acesso Vitalício!
             </a>
@@ -383,8 +384,8 @@ const Index = () => {
                 "Certificado Reconhecido Nacionalmente"
               ].map((item, index) => (
                 <div key={index} className="flex items-start gap-2">
-                  <Check className="text-fuschia-500 shrink-0 mt-1" size={18} />
-                  <span className="text-sm text-left text-gray-300">{item}</span>
+                  <Check className="text-cyan-400 shrink-0 mt-1" size={18} />
+                  <span className="text-sm text-left text-gray-300 text-description">{item}</span>
                 </div>
               ))}
             </div>

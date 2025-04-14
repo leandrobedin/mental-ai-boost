@@ -77,7 +77,6 @@ const VideoTestimonials = () => {
       // Create backdrop div
       const backdrop = document.createElement('div');
       backdrop.id = `backdrop_${videoId}`;
-      backdrop.style.webkitBackdropFilter = 'blur(5px)';
       backdrop.style.backdropFilter = 'blur(5px)';
       backdrop.style.position = 'absolute';
       backdrop.style.top = '0';
@@ -113,6 +112,12 @@ const VideoTestimonials = () => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length);
   };
 
+  // Function to scroll to the offer card
+  const scrollToOffer = () => {
+    const offerCardElement = document.querySelector("[data-offer-card]");
+    offerCardElement?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <section className="py-16 relative" id="video-testimonials">
       <div 
@@ -139,14 +144,14 @@ const VideoTestimonials = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
           viewport={{ once: true }}
-          className="text-center text-xl font-medium text-gray-300 mb-12"
+          className="text-center text-xl font-medium text-gray-300 mb-12 text-description"
         >
           Sem Filtros, Sem Roteiro...
         </motion.p>
         
         <div className="max-w-4xl mx-auto">
           <div className="glass-card p-6 mb-8">
-            <p className="text-xl font-semibold text-fuschia-500 mb-8 text-center">
+            <p className="text-xl font-semibold text-cyan-400 mb-8 text-center text-description">
               "{testimonials[currentIndex].text}"
             </p>
             
@@ -168,7 +173,7 @@ const VideoTestimonials = () => {
                   key={index}
                   onClick={() => setCurrentIndex(index)}
                   className={`h-3 w-3 rounded-full transition-all ${
-                    index === currentIndex ? 'bg-fuschia-500 scale-125' : 'bg-fuschia-500/30'
+                    index === currentIndex ? 'bg-orange-500 scale-125' : 'bg-orange-500/30'
                   }`}
                   aria-label={`Go to testimonial ${index + 1}`}
                 />

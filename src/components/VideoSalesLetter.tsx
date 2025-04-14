@@ -23,6 +23,12 @@ const VideoSalesLetter = () => {
     }
   }, []);
 
+  // Function to scroll to the offer card
+  const scrollToOffer = () => {
+    const offerCardElement = document.querySelector("[data-offer-card]");
+    offerCardElement?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <section className="py-16">
       <div className="container mx-auto px-4">
@@ -53,7 +59,7 @@ const VideoSalesLetter = () => {
               />
               <div 
                 id="backdrop_67f4081af1a80f4c291f9225" 
-                style={{ WebkitBackdropFilter: 'blur(5px)', backdropFilter: 'blur(5px)', position: 'absolute', top: 0, height: '100%', width: '100%' }}
+                style={{ backdropFilter: 'blur(5px)', position: 'absolute', top: 0, height: '100%', width: '100%' }}
               ></div>
             </div>
           </div>
