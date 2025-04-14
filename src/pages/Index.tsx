@@ -14,10 +14,12 @@ import EnhancedFAQ from '@/components/EnhancedFAQ';
 import WhatsAppSupport from '@/components/WhatsAppSupport';
 import InsightsSection from '@/components/InsightsSection';
 import FeedbackGallery from '@/components/FeedbackGallery';
+
 const Index = () => {
   const [isVisible, setIsVisible] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);
   const offerCardRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     setIsVisible(true);
     const observer = new IntersectionObserver(([entry]) => {
@@ -35,16 +37,14 @@ const Index = () => {
     };
   }, []);
 
-  // Função para rolar suavemente até o card de oferta
   const scrollToOffer = () => {
     offerCardRef.current?.scrollIntoView({
       behavior: 'smooth'
     });
   };
+
   return <div className="min-h-screen bg-dark-900 text-white overflow-x-hidden">
-      {/* Hero Section */}
       <section ref={heroRef} className="min-h-screen relative flex items-center py-20 overflow-hidden grid-pattern">
-        {/* Background Elements */}
         <div className="absolute inset-0 bg-gradient-to-br from-dark-900 via-dark-900 to-fuschia-700/10"></div>
         <div className="absolute top-0 left-0 w-full h-full opacity-20 pointer-events-none">
           <div className="absolute top-0 right-0 w-96 h-96 bg-fuschia-500/30 rounded-full blur-[100px]"></div>
@@ -52,7 +52,6 @@ const Index = () => {
         </div>
         
         <div className="container mx-auto px-4 z-10 relative">
-          {/* Countdown Timer */}
           <div className="glass-card max-w-md mx-auto mb-8 p-4 text-center">
             <p className="text-lg font-semibold mb-4 text-description">Tempo Restante da Oferta:</p>
             <CountdownTimer />
@@ -71,9 +70,9 @@ const Index = () => {
               duration: 0.7,
               delay: 0.2
             }} className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
-                De Terapeuta Sobrecarregado a Empresário de Sucesso:
+                SEU CONSULTÓRIO PODE SER UMA MÁQUINA DE RESULTADOS SE VOCÊ PARAR DE SEGUIR O MODELO TRADICIONAL:
                 <span className="text-cyan-400 block mt-2">
-                  Como Profissionais da Saúde Mental Estão Triplicando Sua Renda em Apenas 7 Dias!
+                  Conheça a inteligência artificial que me tirou do cansaço crônico e me levou a triplicar o faturamento em DIAS. Sem mágica. Sem novos atendimentos. Só estratégia.
                 </span>
               </motion.h1>
               
@@ -87,6 +86,23 @@ const Index = () => {
               duration: 0.7,
               delay: 0.4
             }} className="text-gray-300 mb-8 text-description text-lg font-medium md:text-xl">Com um único sistema, não só atingi R$ 100.000 de faturamento mensal, como também simplifiquei minha rotina, cortando 70% das tarefas administrativas chatas.</motion.p>
+              
+              <motion.div className="lg:hidden mb-8" initial={{
+                opacity: 0,
+                scale: 0.9
+              }} animate={{
+                opacity: isVisible ? 1 : 0,
+                scale: isVisible ? 1 : 0.9
+              }} transition={{
+                duration: 0.7,
+                delay: 0.6
+              }}>
+                <div className="relative">
+                  <div className="absolute inset-0 bg-orange-500/20 rounded-xl blur-xl transform -rotate-2"></div>
+                  <img src="https://1000comandos.descomplicandovidas.com.br/wp-content/webp-express/webp-images/uploads/2023/08/mockup-1000-min.png.webp" alt="Mockup do produto" className="relative z-10 rounded-xl shadow-2xl shadow-orange-500/20 max-w-full h-auto" />
+                  <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-cyan-500/30 rounded-full blur-xl"></div>
+                </div>
+              </motion.div>
               
               <motion.div initial={{
               opacity: 0,
@@ -132,7 +148,7 @@ const Index = () => {
               </motion.div>
             </div>
             
-            <motion.div className="lg:w-1/2" initial={{
+            <motion.div className="hidden lg:block lg:w-1/2" initial={{
             opacity: 0,
             scale: 0.9
           }} animate={{
@@ -152,10 +168,8 @@ const Index = () => {
         </div>
       </section>
       
-      {/* VSL Section */}
       <VideoSalesLetter />
       
-      {/* Features Section */}
       <section className="relative py-[40px]">
         <div className="container mx-auto px-4">
           <motion.h2 initial={{
@@ -217,7 +231,6 @@ const Index = () => {
         </div>
       </section>
       
-      {/* What You'll Receive */}
       <section className="py-16 relative">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-fuschia-500/5 opacity-50 pointer-events-none"></div>
         
@@ -275,13 +288,10 @@ const Index = () => {
         </div>
       </section>
       
-      {/* Topics Section */}
       <TopicsSection />
       
-      {/* Video Testimonials */}
       <VideoTestimonials />
       
-      {/* Regular Testimonials */}
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
@@ -334,25 +344,18 @@ const Index = () => {
         </div>
       </section>
       
-      {/* Insights Section */}
       <InsightsSection />
       
-      {/* Feedback Gallery */}
       <FeedbackGallery />
       
-      {/* Benefits Section */}
       <Benefits />
       
-      {/* Bonus Section */}
       <EnhancedBonus />
       
-      {/* Planner Section */}
       <PlannerSection />
       
-      {/* Certificate Section */}
       <CertificateSection />
       
-      {/* Pricing & CTA Section */}
       <section className="py-16 relative">
         <div className="absolute inset-0 bg-gradient-to-t from-orange-500/10 to-transparent opacity-50 pointer-events-none"></div>
         
@@ -399,16 +402,12 @@ const Index = () => {
         </div>
       </section>
       
-      {/* Guarantee Section */}
       <Guarantee />
       
-      {/* WhatsApp Support */}
       <WhatsAppSupport />
       
-      {/* FAQ Section */}
       <EnhancedFAQ />
       
-      {/* Footer */}
       <footer className="py-8 border-t border-gray-800">
         <div className="container mx-auto px-4">
           <div className="text-center">
@@ -420,4 +419,5 @@ const Index = () => {
       </footer>
     </div>;
 };
+
 export default Index;
