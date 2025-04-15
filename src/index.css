@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -110,6 +111,10 @@
   ::-webkit-scrollbar-thumb:hover {
     @apply bg-fuschia-600;
   }
+
+  html {
+    scroll-behavior: auto !important;
+  }
 }
 
 @layer components {
@@ -150,34 +155,4 @@
   }
 }
 
-@keyframes float {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
-}
-
-@keyframes pulse-glow {
-  0% {
-    box-shadow: 0 0 5px 0 rgba(233, 50, 109, 0.5);
-  }
-  50% {
-    box-shadow: 0 0 20px 5px rgba(233, 50, 109, 0.5);
-  }
-  100% {
-    box-shadow: 0 0 5px 0 rgba(233, 50, 109, 0.5);
-  }
-}
-
-.animate-float {
-  animation: float 3s ease-in-out infinite;
-}
-
-.animate-pulse-glow {
-  animation: pulse-glow 2s ease-in-out infinite;
-}
+/* Remove animations that might be disrupting mobile reading */

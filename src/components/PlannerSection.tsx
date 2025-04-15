@@ -1,7 +1,26 @@
 
 import { motion } from 'framer-motion';
+import { useEffect, useRef } from 'react';
 
 const PlannerSection = () => {
+  const videoRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      const script = document.createElement('script');
+      script.src = "https://scripts.converteai.net/c20a50c2-baca-453d-9373-a276c8f62421/players/67f4082572e72f435bd98e04/player.js";
+      script.async = true;
+      script.id = "scr_67f4082572e72f435bd98e04";
+      document.body.appendChild(script);
+
+      return () => {
+        if (script.parentNode) {
+          script.parentNode.removeChild(script);
+        }
+      };
+    }
+  }, []);
+
   return (
     <section className="py-16 relative">
       <div className="absolute inset-0 bg-gradient-to-b from-fuschia-500/10 to-transparent opacity-50 pointer-events-none"></div>
@@ -33,21 +52,20 @@ const PlannerSection = () => {
                   Este planner revolucionário foi projetado para turbinar seus resultados com a IA. Com ele, você planeja estratégias com precisão, organiza conteúdos de forma ágil e domina seu fluxo de trabalho como nunca antes. Normalmente vendido por R$ 197,00, ele já está incluso na sua compra, GRÁTIS!
                 </p>
                 
-                <div 
-                  dangerouslySetInnerHTML={{ 
-                    __html: `
-                      <div id="vid_67f4082572e72f435bd98e04" style="position: relative; width: 100%; padding: 58.44155844155844% 0 0;">
-                        <img id="thumb_67f4082572e72f435bd98e04" src="https://images.converteai.net/c20a50c2-baca-453d-9373-a276c8f62421/players/67f4082572e72f435bd98e04/thumbnail.jpg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; display: block;" alt="thumbnail">
-                        <div id="backdrop_67f4082572e72f435bd98e04" style=" -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); position: absolute; top: 0; height: 100%; width: 100%; "></div>
-                      </div>
-                      <script type="text/javascript" id="scr_67f4082572e72f435bd98e04">
-                        var s=document.createElement("script");
-                        s.src="https://scripts.converteai.net/c20a50c2-baca-453d-9373-a276c8f62421/players/67f4082572e72f435bd98e04/player.js",
-                        s.async=!0,document.head.appendChild(s);
-                      </script>
-                    `
-                  }}
-                />
+                <div ref={videoRef}>
+                  <div id="vid_67f4082572e72f435bd98e04" style={{ position: 'relative', width: '100%', padding: '58.44155844155844% 0 0' }}>
+                    <img 
+                      id="thumb_67f4082572e72f435bd98e04" 
+                      src="https://images.converteai.net/c20a50c2-baca-453d-9373-a276c8f62421/players/67f4082572e72f435bd98e04/thumbnail.jpg" 
+                      style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} 
+                      alt="thumbnail"
+                    />
+                    <div 
+                      id="backdrop_67f4082572e72f435bd98e04" 
+                      style={{ backdropFilter: 'blur(5px)', position: 'absolute', top: 0, height: '100%', width: '100%' }}
+                    ></div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

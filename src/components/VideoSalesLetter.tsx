@@ -7,12 +7,12 @@ const VideoSalesLetter = () => {
 
   useEffect(() => {
     if (videoContainerRef.current) {
-      // Create and append the script element
+      // Create and append the script element directly to the body
       const script = document.createElement('script');
       script.src = "https://scripts.converteai.net/c20a50c2-baca-453d-9373-a276c8f62421/players/67f4081af1a80f4c291f9225/player.js";
       script.async = true;
       script.id = "scr_67f4081af1a80f4c291f9225";
-      document.head.appendChild(script);
+      document.body.appendChild(script);
 
       return () => {
         // Clean up the script on component unmount
@@ -26,7 +26,7 @@ const VideoSalesLetter = () => {
   // Function to scroll to the offer card
   const scrollToOffer = () => {
     const offerCardElement = document.querySelector("[data-offer-card]");
-    offerCardElement?.scrollIntoView({ behavior: 'smooth' });
+    offerCardElement?.scrollIntoView({ behavior: 'auto' });
   };
 
   return (

@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowDown, Check, ChevronDown, MessageCircle } from 'lucide-react';
@@ -39,11 +40,12 @@ const Index = () => {
 
   const scrollToOffer = () => {
     offerCardRef.current?.scrollIntoView({
-      behavior: 'smooth'
+      behavior: 'auto'
     });
   };
 
-  return <div className="min-h-screen bg-dark-900 text-white overflow-x-hidden">
+  return (
+    <div className="min-h-screen bg-dark-900 text-white overflow-x-hidden">
       <section ref={heroRef} className="min-h-screen relative flex items-center py-20 overflow-hidden grid-pattern">
         <div className="absolute inset-0 bg-gradient-to-br from-dark-900 via-dark-900 to-fuschia-700/10"></div>
         <div className="absolute top-0 left-0 w-full h-full opacity-20 pointer-events-none">
@@ -58,112 +60,53 @@ const Index = () => {
             <p className="text-sm text-gray-400 mt-2">Atenção: Finalize o pagamento e garanta seu desconto!</p>
           </div>
 
-          <div className="flex flex-col lg:flex-row items-center gap-12">
+          <div className="flex flex-col lg:flex-row items-center gap-12 mt-12">
             <div className="lg:w-1/2">
-              <motion.h1 initial={{
-              opacity: 0,
-              y: 30
-            }} animate={{
-              opacity: isVisible ? 1 : 0,
-              y: isVisible ? 0 : 30
-            }} transition={{
-              duration: 0.7,
-              delay: 0.2
-            }} className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight mt-8">
                 Seu Consultório: Uma Máquina de Resultados Além do Tradicional
                 <span className="text-cyan-400 block mt-2">
                   IA que Transforma Cansaço em Faturamento em Dias
                 </span>
-              </motion.h1>
+              </h1>
               
-              <motion.p initial={{
-              opacity: 0,
-              y: 30
-            }} animate={{
-              opacity: isVisible ? 1 : 0,
-              y: isVisible ? 0 : 30
-            }} transition={{
-              duration: 0.7,
-              delay: 0.4
-            }} className="text-gray-300 mb-8 text-description text-lg font-medium md:text-xl">Com um único sistema, não só atingi R$ 100.000 de faturamento mensal, como também simplifiquei minha rotina, cortando 70% das tarefas administrativas chatas.</motion.p>
+              <p className="text-gray-300 mb-8 text-description text-lg font-medium md:text-xl">
+                Com um único sistema, não só atingi R$ 100.000 de faturamento mensal, como também simplifiquei minha rotina, cortando 70% das tarefas administrativas chatas.
+              </p>
               
-              <motion.div className="lg:hidden mb-8" initial={{
-                opacity: 0,
-                scale: 0.9
-              }} animate={{
-                opacity: isVisible ? 1 : 0,
-                scale: isVisible ? 1 : 0.9
-              }} transition={{
-                duration: 0.7,
-                delay: 0.6
-              }}>
+              <div className="lg:hidden mb-8">
                 <div className="relative">
                   <div className="absolute inset-0 bg-orange-500/20 rounded-xl blur-xl transform -rotate-2"></div>
                   <img src="https://1000comandos.descomplicandovidas.com.br/wp-content/webp-express/webp-images/uploads/2023/08/mockup-1000-min.png.webp" alt="Mockup do produto" className="relative z-10 rounded-xl shadow-2xl shadow-orange-500/20 max-w-full h-auto" />
                   <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-cyan-500/30 rounded-full blur-xl"></div>
                 </div>
-              </motion.div>
+              </div>
               
-              <motion.div initial={{
-              opacity: 0,
-              y: 30
-            }} animate={{
-              opacity: isVisible ? 1 : 0,
-              y: isVisible ? 0 : 30
-            }} transition={{
-              duration: 0.7,
-              delay: 0.6
-            }} className="glass-card p-5 mb-8 border-orange-500/30">
+              <div className="glass-card p-5 mb-8 border-orange-500/30">
                 <p className="font-semibold mb-2 text-description">ATENÇÃO:</p>
                 <p className="text-gray-300 text-description">
                   Isso não é uma ameaça à sua profissão, é um <span className="text-cyan-400 font-semibold">superpoder</span> para que você faça o que nenhuma IA jamais fará, mudar histórias, salvar vidas e ser lembrado como um profissional da saúde mental que fez a diferença. ❤️
                 </p>
-              </motion.div>
+              </div>
               
-              <motion.div initial={{
-              opacity: 0,
-              y: 30
-            }} animate={{
-              opacity: isVisible ? 1 : 0,
-              y: isVisible ? 0 : 30
-            }} transition={{
-              duration: 0.7,
-              delay: 0.8
-            }} className="flex flex-col items-center">
-                <button onClick={scrollToOffer} className="glass-button w-full md:w-auto animate-pulse-glow text-lg">
+              <div className="flex flex-col items-center">
+                <button onClick={scrollToOffer} className="glass-button w-full md:w-auto text-lg">
                   SIM, QUERO REVOLUCIONAR MINHA CARREIRA!
                 </button>
                 <p className="text-sm text-gray-400 mt-2 text-center">Seja você iniciante ou profissional experiente.</p>
                 
-                <motion.div initial={{
-                opacity: 0
-              }} animate={{
-                opacity: isVisible ? 1 : 0
-              }} transition={{
-                duration: 1,
-                delay: 1.5
-              }} className="flex justify-center mt-8">
-                  <ArrowDown onClick={scrollToOffer} className="animate-float text-orange-500 cursor-pointer" size={32} />
-                </motion.div>
-              </motion.div>
+                <div className="flex justify-center mt-8">
+                  <ArrowDown onClick={scrollToOffer} className="text-orange-500 cursor-pointer" size={32} />
+                </div>
+              </div>
             </div>
             
-            <motion.div className="hidden lg:block lg:w-1/2" initial={{
-            opacity: 0,
-            scale: 0.9
-          }} animate={{
-            opacity: isVisible ? 1 : 0,
-            scale: isVisible ? 1 : 0.9
-          }} transition={{
-            duration: 0.7,
-            delay: 0.6
-          }}>
+            <div className="hidden lg:block lg:w-1/2">
               <div className="relative">
                 <div className="absolute inset-0 bg-orange-500/20 rounded-xl blur-xl transform -rotate-2"></div>
                 <img src="https://1000comandos.descomplicandovidas.com.br/wp-content/webp-express/webp-images/uploads/2023/08/mockup-1000-min.png.webp" alt="Mockup do produto" className="relative z-10 rounded-xl shadow-2xl shadow-orange-500/20 max-w-full h-auto" />
                 <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-cyan-500/30 rounded-full blur-xl"></div>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -172,61 +115,32 @@ const Index = () => {
       
       <section className="relative py-[40px]">
         <div className="container mx-auto px-4">
-          <motion.h2 initial={{
-          opacity: 0,
-          y: 20
-        }} whileInView={{
-          opacity: 1,
-          y: 0
-        }} transition={{
-          duration: 0.5
-        }} viewport={{
-          once: true
-        }} className="section-heading text-center mx-auto mb-8">
+          <h2 className="section-heading text-center mx-auto mb-8">
             Apresentamos a solução inovadora
-          </motion.h2>
-          <motion.p initial={{
-          opacity: 0,
-          y: 20
-        }} whileInView={{
-          opacity: 1,
-          y: 0
-        }} transition={{
-          duration: 0.5,
-          delay: 0.2
-        }} viewport={{
-          once: true
-        }} className="text-center text-gray-300 mb-12 max-w-2xl mx-auto">
+          </h2>
+          <p className="text-center text-gray-300 mb-12 max-w-2xl mx-auto">
             A ciência da psicologia unida à eficiência da Inteligência Artificial, permitindo que você:
-          </motion.p>
+          </p>
           
           <div className="grid md:grid-cols-3 gap-6">
-            {[{
-            title: "Amplie sua capacidade de atendimento",
-            delay: 0.3
-          }, {
-            title: "Aprofunde a conexão com seus pacientes",
-            delay: 0.4
-          }, {
-            title: "Destaque-se no mercado com abordagens modernas",
-            delay: 0.5
-          }].map((item, index) => <motion.div key={index} initial={{
-            opacity: 0,
-            y: 20
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            duration: 0.5,
-            delay: item.delay
-          }} viewport={{
-            once: true
-          }} className="glass-card p-6 text-center flex flex-col items-center hover:translate-y-[-5px] transition-all duration-300">
+            {[
+              {
+                title: "Amplie sua capacidade de atendimento",
+              }, 
+              {
+                title: "Aprofunde a conexão com seus pacientes",
+              }, 
+              {
+                title: "Destaque-se no mercado com abordagens modernas",
+              }
+            ].map((item, index) => (
+              <div key={index} className="glass-card p-6 text-center flex flex-col items-center hover:translate-y-[-5px] transition-all duration-300">
                 <div className="h-12 w-12 rounded-full flex items-center justify-center mb-4 bg-orange-300">
                   <Check className="text-fuschia-500" size={24} />
                 </div>
                 <h3 className="text-xl font-bold">{item.title}</h3>
-              </motion.div>)}
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -235,45 +149,30 @@ const Index = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-fuschia-500/5 opacity-50 pointer-events-none"></div>
         
         <div className="container mx-auto px-4 relative z-10">
-          <motion.h2 initial={{
-          opacity: 0,
-          y: 20
-        }} whileInView={{
-          opacity: 1,
-          y: 0
-        }} transition={{
-          duration: 0.5
-        }} viewport={{
-          once: true
-        }} className="section-heading text-center mx-auto mb-12">
+          <h2 className="section-heading text-center mx-auto mb-12">
             Você vai receber:
-          </motion.h2>
+          </h2>
           
           <div className="grid lg:grid-cols-2 gap-8">
-            {[{
-            title: "Repertório Abrangente de Comandos",
-            description: "Alinhados com as mais recentes técnicas e metodologias baseadas em evidências, como Terapia Cognitivo-Comportamental, Terapia Focada na Solução, Terapia Sistêmica e muito mais."
-          }, {
-            title: "Aulas em Vídeos",
-            description: "Aprenda passo a passo como utilizar os comandos e extrair os melhores resultados do ChatGPT em sua prática clínica."
-          }, {
-            title: "Checklist de Planejamento",
-            description: "Organize e potencialize suas sessões com um guia estruturado que facilita o planejamento e o acompanhamento do progresso de seus pacientes."
-          }, {
-            title: "Inteligência Artificial na Saúde Mental",
-            description: "Material completo para todos os profissionais da saúde mental que desejam dominar a IA na prática terapêutica."
-          }].map((item, index) => <motion.div key={index} initial={{
-            opacity: 0,
-            x: index % 2 === 0 ? -20 : 20
-          }} whileInView={{
-            opacity: 1,
-            x: 0
-          }} transition={{
-            duration: 0.5,
-            delay: index * 0.1
-          }} viewport={{
-            once: true
-          }} className="glass-card p-6 flex gap-4">
+            {[
+              {
+                title: "Repertório Abrangente de Comandos",
+                description: "Alinhados com as mais recentes técnicas e metodologias baseadas em evidências, como Terapia Cognitivo-Comportamental, Terapia Focada na Solução, Terapia Sistêmica e muito mais."
+              }, 
+              {
+                title: "Aulas em Vídeos",
+                description: "Aprenda passo a passo como utilizar os comandos e extrair os melhores resultados do ChatGPT em sua prática clínica."
+              }, 
+              {
+                title: "Checklist de Planejamento",
+                description: "Organize e potencialize suas sessões com um guia estruturado que facilita o planejamento e o acompanhamento do progresso de seus pacientes."
+              }, 
+              {
+                title: "Inteligência Artificial na Saúde Mental",
+                description: "Material completo para todos os profissionais da saúde mental que desejam dominar a IA na prática terapêutica."
+              }
+            ].map((item, index) => (
+              <div key={index} className="glass-card p-6 flex gap-4">
                 <div className="shrink-0">
                   <div className="h-12 w-12 rounded-full flex items-center justify-center bg-orange-300">
                     <Check className="text-fuschia-500" size={24} />
@@ -283,7 +182,8 @@ const Index = () => {
                   <h3 className="text-xl font-bold mb-2">{item.title}</h3>
                   <p className="text-gray-300">{item.description}</p>
                 </div>
-              </motion.div>)}
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -299,33 +199,27 @@ const Index = () => {
           </div>
           
           <div className="grid md:grid-cols-3 gap-6">
-            {[{
-            name: "Dra. Mariana S.",
-            role: "Psicóloga Clínica",
-            text: "Incrível como o material otimizou minha prática! Economizo horas na preparação das sessões e consigo atender mais pacientes com qualidade superior.",
-            stars: 5
-          }, {
-            name: "Dr. Carlos M.",
-            role: "Psicoterapeuta",
-            text: "Os comandos são revolucionários. Minha produtividade aumentou drasticamente e meus pacientes perceberam a diferença na qualidade das intervenções.",
-            stars: 5
-          }, {
-            name: "Patrícia L.",
-            role: "Psicanalista",
-            text: "Inicialmente tive receio de integrar a IA na minha prática, mas este material me mostrou como fazer isso de maneira ética e eficaz. Resultado: triplicou minha renda!",
-            stars: 5
-          }].map((testimonial, index) => <motion.div key={index} initial={{
-            opacity: 0,
-            y: 20
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            duration: 0.5,
-            delay: index * 0.1
-          }} viewport={{
-            once: true
-          }} className="glass-card p-6 hover:translate-y-[-5px] transition-all duration-300">
+            {[
+              {
+                name: "Dra. Mariana S.",
+                role: "Psicóloga Clínica",
+                text: "Incrível como o material otimizou minha prática! Economizo horas na preparação das sessões e consigo atender mais pacientes com qualidade superior.",
+                stars: 5
+              }, 
+              {
+                name: "Dr. Carlos M.",
+                role: "Psicoterapeuta",
+                text: "Os comandos são revolucionários. Minha produtividade aumentou drasticamente e meus pacientes perceberam a diferença na qualidade das intervenções.",
+                stars: 5
+              }, 
+              {
+                name: "Patrícia L.",
+                role: "Psicanalista",
+                text: "Inicialmente tive receio de integrar a IA na minha prática, mas este material me mostrou como fazer isso de maneira ética e eficaz. Resultado: triplicou minha renda!",
+                stars: 5
+              }
+            ].map((testimonial, index) => (
+              <div key={index} className="glass-card p-6 hover:translate-y-[-5px] transition-all duration-300">
                 <div className="flex mb-3">
                   {[...Array(testimonial.stars)].map((_, i) => <Check key={i} size={16} className="text-yellow-400" />)}
                 </div>
@@ -339,7 +233,8 @@ const Index = () => {
                     <p className="text-sm text-gray-400">{testimonial.role}</p>
                   </div>
                 </div>
-              </motion.div>)}
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -360,17 +255,11 @@ const Index = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-orange-500/10 to-transparent opacity-50 pointer-events-none"></div>
         
         <div className="container mx-auto px-4 relative z-10">
-          <motion.div ref={offerCardRef} data-offer-card initial={{
-          opacity: 0,
-          y: 20
-        }} whileInView={{
-          opacity: 1,
-          y: 0
-        }} transition={{
-          duration: 0.5
-        }} viewport={{
-          once: true
-        }} className="glass-card max-w-4xl mx-auto p-8 text-center border-cyan-500/30 shadow-xl shadow-orange-500/10">
+          <div 
+            ref={offerCardRef} 
+            data-offer-card 
+            className="glass-card max-w-4xl mx-auto p-8 text-center border-cyan-500/30 shadow-xl shadow-orange-500/10"
+          >
             <h3 className="text-lg md:text-xl font-semibold mb-2 subtitle">Tudo isso deveria custar mais de:</h3>
             <p className="text-3xl font-bold line-through mb-1 text-gray-400">R$ 197,00</p>
             <p className="text-sm text-gray-400 mb-6">*Valor promocional somente nessa oferta!</p>
@@ -384,21 +273,37 @@ const Index = () => {
             <h3 className="text-xl font-semibold mb-2 subtitle">Mas somente hoje, você poderá levar tudo por apenas:</h3>
             <div className="mb-6 bg-gradient-to-r from-cyan-500/20 to-orange-500/20 p-6 rounded-lg">
               <p className="text-gray-300 text-xl">De <span className="line-through">R$ 197,00</span> por apenas</p>
-              <p className="font-bold text-orange-500 mb-2 mx-0 py-0 my-[20px] text-5xl">R$ 35,00</p>
+              <p className="font-bold text-green-500 mb-2 mx-0 py-0 my-[20px] text-5xl">R$ 35,00</p>
               <p className="text-gray-300 text-lg">Pagamento Único, Acesso Vitalício e Envio Imediato!</p>
             </div>
             
-            <a href="https://go.pepper.com.br/5i5bw" target="_blank" rel="noopener noreferrer" className="glass-button w-full md:w-auto mb-8 animate-pulse-glow text-lg px-10 inline-block bg-orange-500 hover:bg-orange-600 scale-110 transform transition-all py-[16px]">QUERO GARANTIR MEU ACESSO VITALÍCIO!</a>
+            <a 
+              href="https://go.pepper.com.br/5i5bw" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="glass-button w-full md:w-auto mb-8 text-lg px-10 inline-block bg-orange-500 hover:bg-orange-600 scale-110 transform transition-all py-[16px]"
+            >
+              QUERO GARANTIR MEU ACESSO VITALÍCIO!
+            </a>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-6">
-              {["Funciona nas Versões Gratuitas e Pagas de Todas as IAs", "Acesso Vitalício e Imediato com Pagamento Único de R$35", "Garantia Total de 30 Dias ou Seu Dinheiro de Volta", "88% de Desconto + 6 Bônus Gratuitos (Só Hoje!)", "Privacidade 100% Garantida com Dados Criptografados", "Certificado Reconhecido Nacionalmente"].map((item, index) => <div key={index} className="flex items-start gap-2">
+              {[
+                "Funciona nas Versões Gratuitas e Pagas de Todas as IAs", 
+                "Acesso Vitalício e Imediato com Pagamento Único de R$35", 
+                "Garantia Total de 30 Dias ou Seu Dinheiro de Volta", 
+                "88% de Desconto + 6 Bônus Gratuitos (Só Hoje!)", 
+                "Privacidade 100% Garantida com Dados Criptografados", 
+                "Certificado Reconhecido Nacionalmente"
+              ].map((item, index) => (
+                <div key={index} className="flex items-start gap-2">
                   <Check className="text-cyan-400 shrink-0 mt-1" size={18} />
                   <span className="text-left text-gray-300 text-description text-base">{item}</span>
-                </div>)}
+                </div>
+              ))}
             </div>
             
             <p className="text-sm text-gray-400">Atenção: Após encerramento da promoção, o valor retornará para R$ 197,00.</p>
-          </motion.div>
+          </div>
         </div>
       </section>
       
@@ -417,7 +322,8 @@ const Index = () => {
           </div>
         </div>
       </footer>
-    </div>;
+    </div>
+  );
 };
 
 export default Index;
